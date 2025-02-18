@@ -14,12 +14,8 @@ bool GetCheese(const std::vector<std::vector<int>>& maze, int row, int col)
 
     if (!maze[row][col])
         return false;
-    // Go down
-    if (GetCheese(maze, row + 1, col))
-        return true;
-
-    // Go right
-    return GetCheese(maze, row, col + 1);
+    // Go down and right
+    return GetCheese(maze, row + 1, col) || GetCheese(maze, row, col + 1);
 }
 
 bool CanGetCheese(std::vector<std::vector<int>>& maze)
